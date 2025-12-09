@@ -73,24 +73,10 @@ cd fileName
 Navigate to: `http://localhost/php_developer/public/index.php`
 
 
-
-## Object-Oriented Design
-
-### Database Class
-- Encapsulates MySQL connection using PDO
-- Handles connection errors gracefully
-- Singleton pattern for connection reuse
-
 ### Product Class
 - Represents product entity
 - Methods: `save()`, `getAll()`, `getByPriceRange()`, `getSortedByPrice()`
 - Handles duplicate prevention
-
-### ApiFetcher Class
-- Fetches data from external API
-- Decodes JSON responses
-- Prepares data for database storage
-- Error handling for API failures
 
 ## Technologies Used
 

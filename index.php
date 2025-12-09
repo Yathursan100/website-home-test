@@ -2,10 +2,9 @@
 
 /**
  * Main Product Display Page
- * Displays products in a responsive grid layout with sorting and filtering
  */
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../classes/Product.php';
+require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/classes/Product.php';
 
 // Get URL parameters for sorting and filtering
 $sortBy = $_GET['sort'] ?? '';
@@ -85,7 +84,7 @@ try {
                 <!-- Products card -->
                 <?php if (empty($products)): ?>
                 <div class="uk-alert-warning" uk-alert>
-                    <p>No products found. <a href="../scripts/import.php">Import products from API</a></p>
+                    <p>No products found. <a href="/scripts/import.php">Import products from API</a></p>
                 </div>
                 <?php else: ?>
                <?php include __DIR__.'/parts/product-card.php'; ?>
@@ -103,7 +102,7 @@ try {
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
-    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+   
 </body>
 
 </html>
