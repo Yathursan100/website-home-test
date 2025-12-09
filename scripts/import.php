@@ -43,8 +43,29 @@ try {
     $preparedProducts = $apiFetcher->prepareForStorage($products);
     
     echo "<div class='info'>" . count($preparedProducts) . " are storage</div>";
+    //save products to database
+    echo "<div class='info'>Saving products to database....</div>";
+    $saved = 0;
+   // $updated = 0;
+    $errors = 0;
     
-    
+    foreach ($preparedProducts as $productData) {
+        try {
+            $product = new Product($productData);
+            $result = $product->save();
+            
+            if ($result) {
+                $saved++;
+            } else {
+                $errors++;
+            }
+        } catch (Exception $e) {
+            error_log("Error saving product ID {$productData['id']}: " . $e->getMessage());
+            $errors++;
+        }
+    }
+     echo "<div class='info'>Import completed</div>";
+    echo "<a href='/public'>Back to homepage</a>";
 } catch (Exception $e) {
     echo "<div class='error'>";
     echo "<h2>Import Failed</h2>";

@@ -22,11 +22,9 @@ cd fileName
    ```
 
 2. Import the database schema:
+    CREATE DATABASE IF NOT EXISTS
    ```bash
-   CREATE DATABASE IF NOT EXISTS product_app;
-USE product_app;
-
-CREATE TABLE IF NOT EXISTS products (
+    CREATE TABLE IF NOT EXISTS products (
     id INT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -39,7 +37,7 @@ CREATE TABLE IF NOT EXISTS products (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_category (category),
     INDEX idx_price (price)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
    ```
 
 3. Configure database connection:
